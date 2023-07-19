@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  vroom_service:
+    build: .
+    entrypoint: /bin/bash
+    command: /docker-entrypoint.sh
+    volumes:
+      - ./vroom-conf:/conf/:rw
+    ports:
+      - 3000:3000
+    environment:
+      - VROOM_ROUTER=osrm
+
+volumes:
+  vroom-conf:
